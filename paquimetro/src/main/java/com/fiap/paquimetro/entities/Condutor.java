@@ -1,10 +1,10 @@
 package com.fiap.paquimetro.entities;
 
 import com.fiap.paquimetro.dto.CondutorDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Condutor {
@@ -15,6 +15,13 @@ public class Condutor {
     private String CPF;
     private String nome;
     private String telefone;
+
+    @OneToMany(mappedBy = "condutor")
+    private List<Registro> registros = new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "condutor")
+    private List<Veiculo> veiculos = new ArrayList<>();
 
     public Condutor() {
     }
@@ -51,5 +58,22 @@ public class Condutor {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+
+    public List<Registro> getRegistros() {
+        return registros;
+    }
+
+    public void addRegistro(Registro registro) {
+        this.registros.add(registro);
+    }
+
+    public List<Veiculo> getVeiculos() {
+        return veiculos;
+    }
+
+    public void addVeiculos(Veiculo veiculo) {
+        this.veiculos.add(veiculo);
     }
 }

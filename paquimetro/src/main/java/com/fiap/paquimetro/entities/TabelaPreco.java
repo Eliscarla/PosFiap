@@ -1,12 +1,11 @@
 package com.fiap.paquimetro.entities;
 
 import com.fiap.paquimetro.dto.TabelaPrecoDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class TabelaPreco {
@@ -16,6 +15,9 @@ public class TabelaPreco {
     private Long id;
     private Time tempoMinimo;
     private Double valorHora;
+
+    @OneToMany(mappedBy = "tabelaPreco")
+    private List<Registro> registros = new ArrayList<>();
 
     public TabelaPreco(){
     }
@@ -42,5 +44,13 @@ public class TabelaPreco {
 
     public void setValorHora(Double valorHora) {
         this.valorHora = valorHora;
+    }
+
+    public List<Registro> getRegistros() {
+        return registros;
+    }
+
+    public void addRegistros(Registro registro) {
+        this.registros.add(registro);
     }
 }

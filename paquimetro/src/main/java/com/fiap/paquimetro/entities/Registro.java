@@ -21,6 +21,17 @@ public class Registro {
     private Double total;
     private String permanecia;
 
+    @ManyToOne
+    @JoinColumn(name = "tabela_preco_id")
+    private TabelaPreco tabelaPreco;
+
+    @ManyToOne
+    @JoinColumn(name = "veiculo_id")
+    private Veiculo veiculo;
+
+    @ManyToOne
+    @JoinColumn(name = "condutor_id")
+    private Condutor condutor;
     public Registro() {
 
     }
@@ -70,6 +81,37 @@ public class Registro {
         Duration d = Duration.between(this.entntrada, this.saida);
         String result = String.format("%02d:%02d", d.toHoursPart(), d.toMinutesPart());
         return result;
+    }
 
+    public Instant getEntntrada() {
+        return entntrada;
+    }
+
+    public void setEntntrada(Instant entntrada) {
+        this.entntrada = entntrada;
+    }
+
+    public TabelaPreco getTabelaPreco() {
+        return tabelaPreco;
+    }
+
+    public void setTabelaPreco(TabelaPreco tabelaPreco) {
+        this.tabelaPreco = tabelaPreco;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Condutor getCondutor() {
+        return condutor;
+    }
+
+    public void setCondutor(Condutor condutor) {
+        this.condutor = condutor;
     }
 }
