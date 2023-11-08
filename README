@@ -1,0 +1,15 @@
+Ferramentas
+Java 17 (Padrão Spring Initializr)
+Spring boot 3.1.5 (Padrão Spring Initializr)
+DevTools (Facilitar setup no ambiente de desenvolvimento dando Restart no servidor a cada modificação feita)
+Spring Web (Para usar uma API REST)
+Bean Validation (Para fazer validações de campos na borda mais externa da API, as REQUESTS)
+GIT (Controle de versão do projeto)
+IDE Intellij
+Postman (Testes da API)
+
+Sobre API-paquimetro
+A API-paquimetro é responsavel por iniciar e finalizar/pagar o estacionamento, bem como 
+para programar o alerta com base no inicio do estacionamento e o recibo para gerar o recibo. 
+Sempre que um paquimetro é iniciado, ele solicita a placa do veículo, a partir da placa do veículo é 
+possivel identificar o condutor, facilitando a usabilidade do sistema para o condutor.
