@@ -1,0 +1,65 @@
+# API DE PAQUIMETROS - Fase3
+
+# ÍNDICE
+
+* [Tecnologias](#tecnologias)
+* [Start](#start)
+* [Decisoes](#decisoes)
+* [Desenho da nova arquitetura](#desenhoNovaArquitetura)
+* [Exemplo Collection Mongo](#exemploCollectionMongo)
+* [Sobre API-paquimetro](#sobreApiPaquimetro)
+* [Sobre ms-email](#sobrems-email)
+* [Sobre ms-alerta](#sobrems-alerta)
+* [Sobre ms-recibo](#sobrems-recibo)
+* [Swagger api-paquimetro](#swaggerApi-paquimetro)
+* [Swagger ms-email](#swaggerms-email)
+* [Swagger ms-recibo](#swaggerms-recibo)
+* [Swagger ms-alerta](#swaggerms-alerta)
+* [Postman Collection](#postmanCollection)
+
+# 
+# Tecnologias 
+
+* Arquitetura: Micro services
+* Dependencias
+    * Java 17 (Padrão Spring Initializr)
+    * Spring boot 3.1.5 (Padrão Spring Initializr)
+    * DevTools (Facilitar setup no ambiente de desenvolvimento dando Restart no servidor a cada modificação feita)
+    * Spring Web (Para usar uma API REST)
+    * Bean Validation (Para fazer validações de campos na borda mais externa da API, as REQUESTS)
+    * GIT (Controle de versão do projeto)
+    * IDE Intellij
+    * Postman (Testes da API)
+    
+
+# Arquitetura 
+
+Sistema escalável, separando algumas responsabilidades em formato de CRUD, possibilitando consultas básicas. 
+
+*Tratamentos de erros:* Os erros são tratados via exceptions.
+
+
+#
+
+
+# Postman Collection  
+
+
+![image](https://photos.app.goo.gl/RcKGb5XBSakA4iDD9)
+#
+
+![image](https://photos.app.goo.gl/4r5tYfhGpapd4aF99)
+#
+
+![image](https://photos.app.goo.gl/rysqJbxq3x6Edffk8)
+
+#
+
+![image](https://photos.app.goo.gl/4uEzLYn8uyLcAoNY7)
+#
+
+![image](https://photos.app.goo.gl/g3x6omtHNtaPdDBU6)
+#
+
+![image](https://photos.app.goo.gl/1vTNH6VRDK7p9n2YA)
+
