@@ -9,8 +9,7 @@ import java.sql.Time;
 public class TabelaPrecoDto {
     private Long id;
 
-    @NotBlank(message = "Campo requerido")
-    private Time tempoMinimo;
+    private Long tempoMinimo;
 
     @Positive(message = "Valor inválido")
     private Double valorHora;
@@ -22,7 +21,7 @@ public class TabelaPrecoDto {
         this.tempoMinimo = tabelaPreco.getTempoMinimo();
         this.valorHora = tabelaPreco.getValorHora();
     }
-    public TabelaPrecoDto(Time tempoMinimo, Double valorHora) {
+    public TabelaPrecoDto(Long tempoMinimo, Double valorHora) {
         this.tempoMinimo = tempoMinimo;
         this.valorHora = valorHora;
     }
@@ -31,11 +30,11 @@ public class TabelaPrecoDto {
         return id;
     }
 
-    public Time getTempoMinimo() {
+    public Long getTempoMinimo() {
         return tempoMinimo;
     }
 
-    public void setTempoMinimo(Time tempoMinimo) {
+    public void setTempoMinimo(Long tempoMinimo) {
         this.tempoMinimo = tempoMinimo;
     }
 

@@ -13,7 +13,7 @@ public class TabelaPreco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Time tempoMinimo;
+    private Long tempoMinimo;
     private Double valorHora;
 
     @OneToMany(mappedBy = "tabelaPreco")
@@ -21,7 +21,7 @@ public class TabelaPreco {
 
     public TabelaPreco(){
     }
-    public TabelaPreco(Time tempoMinimo, Double valorHora) {
+    public TabelaPreco(Long tempoMinimo, Double valorHora) {
         this.tempoMinimo = tempoMinimo;
         this.valorHora = valorHora;
     }
@@ -30,11 +30,11 @@ public class TabelaPreco {
         return id;
     }
 
-    public Time getTempoMinimo() {
+    public Long getTempoMinimo() {
         return tempoMinimo;
     }
 
-    public void setTempoMinimo(Time tempoMinimo) {
+    public void setTempoMinimo(Long tempoMinimo) {
         this.tempoMinimo = tempoMinimo;
     }
 

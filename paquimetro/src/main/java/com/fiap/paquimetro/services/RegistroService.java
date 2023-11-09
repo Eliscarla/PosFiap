@@ -36,7 +36,7 @@ public class RegistroService {
     public RegistroDto salvarRegistros(RegistroDto registroDto){
         Registro registro = new Registro(registroDto);
         registroRepository.save(registro);
-        registroDto.setId(registro.getId());
+     //   registroDto.setId(registro.getId());
         return new RegistroDto(registro);
     };
 
@@ -60,7 +60,7 @@ public class RegistroService {
             Registro registro = registroRepository.getReferenceById(id);
             registro.setEtrada(registroDto.getEntrada());
             registro.setSaida(registroDto.getSaida());
-            registro.getPermanecia();
+          //  registro.getPermanecia();
             RegistroDto dto = new RegistroDto(registro);
             return dto;
         } catch (EntityNotFoundException e) {

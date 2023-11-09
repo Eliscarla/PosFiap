@@ -13,7 +13,7 @@ public class RegistroDto {
 
     private Instant saida;
     private Double total;
-    private String permanecia;
+    private Long permanecia;
 
     public RegistroDto(Registro registro) {
         this.entrada = registro.getEntrada();
@@ -27,13 +27,6 @@ public class RegistroDto {
         return id;
     }
 
-    public Instant getEntntrada() {
-        return entrada;
-    }
-
-    public void setEntntrada(Instant entntrada) {
-        this.entrada = entntrada;
-    }
 
     public Instant getSaida() {
         return saida;
@@ -45,18 +38,6 @@ public class RegistroDto {
 
     public Double getTotal() {
         return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
-    }
-
-    public String getPermanecia() {
-        return permanecia;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Instant getEntrada() {

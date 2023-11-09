@@ -2,24 +2,18 @@ package com.fiap.paquimetro.entities;
 
 import com.fiap.paquimetro.dto.RegistroDto;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.Positive;
-
-import java.sql.Time;
 import java.time.Duration;
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-
 
 @Entity
 public class Registro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Instant entntrada;
+    private Instant entrada;
     private Instant saida;
     private Double total;
-    private String permanecia;
+    private Long permanecia;
 
     @ManyToOne
     @JoinColumn(name = "tabela_preco_id")
@@ -36,29 +30,26 @@ public class Registro {
 
     }
 
-    public Registro(Instant entntrada, Instant saida, String permanecia) {
-        this.entntrada = entntrada;
+    public Registro(Instant entrada, Instant saida) {
+        this.entrada = entrada;
         this.saida = saida;
-        this.permanecia = permanecia;
     }
 
     public Registro(RegistroDto registroDto) {
-        this.entntrada = registroDto.getEntntrada();
+        this.entrada = registroDto.getEntrada();
         this.saida = registroDto.getSaida();
-        this.permanecia = registroDto.getPermanecia();
     }
-
 
     public Long getId() {
         return id;
     }
 
     public Instant getEntrada() {
-        return entntrada;
+        return entrada;
     }
 
     public void setEtrada(Instant entrada) {
-        this.entntrada = entrada;
+        this.entrada = entrada;
     }
 
     public Instant getSaida() {
@@ -69,26 +60,18 @@ public class Registro {
         this.saida = saida;
     }
 
-    public Double getTotal() {
-        return total;
-    }
-
-    public String getPermanecia() {
-        return calcularPermanencia();
-    }
-
-    private String calcularPermanencia() {
-        Duration d = Duration.between(this.entntrada, this.saida);
-        String result = String.format("%02d:%02d", d.toHoursPart(), d.toMinutesPart());
-        return result;
+    public void calcularPermanencia() {
+        Duration d = Duration.between(this.entrada, this.saida);
+        this.permanecia = d.toHours();
+        this.total = d.toHours() * tabelaPreco.getValorHora();
     }
 
     public Instant getEntntrada() {
-        return entntrada;
+        return entrada;
     }
 
     public void setEntntrada(Instant entntrada) {
-        this.entntrada = entntrada;
+        this.entrada = entntrada;
     }
 
     public TabelaPreco getTabelaPreco() {
